@@ -18,8 +18,8 @@
             "init.php"
         ],
         "psr-4": {
-            "Bolt\\Extensions\\Ross\\Formeditor\\": "",
-            "Bolt\\Extensions\\Ross\\Formeditor\\Tests\\": "tests"
+            "Bolt\\Extensions\\Ross\\FormEditor\\": "",
+            "Bolt\\Extensions\\Ross\\FormEditor\\Tests\\": "tests"
         }
     },
     
