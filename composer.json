@@ -3,8 +3,7 @@
     "description": "An extension to Bolt Forms to provide a basic UI",
     "type": "bolt-extension",
     "require": {
-        "bolt/bolt": ">1.9,<3.0.0",
-        "bolt/boltforms": "^2.1"
+        "bolt/bolt": ">1.9,<3.0.0"
     },
     "license": "MIT",
     "authors": [{"name": "Ross Riley", "email": "riley.ross@gmail.com"}
