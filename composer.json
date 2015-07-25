@@ -26,7 +26,8 @@
     "extra": {
         "bolt-assets": "assets",
         "bolt-screenshots": [
-            "screenshot.png"
+            "screenshot.png",
+            "screenshot2.png"
         ]
     }
 }
