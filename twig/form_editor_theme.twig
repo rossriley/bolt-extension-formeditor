@@ -1,0 +1,16 @@
+{# overrides for the defaults in vendor/symfony/twig-bridge/Symfony/Bridge/Twig/Resources/views/Form/form_div_layout.html.twig #}
+
+{% block form_row %}
+    {% spaceless %}
+        <div class=" {% if errors|length > 0 %}has-error{% endif %}">
+            {% if form.vars.compound %}
+                {% set class = '' %}
+            {% else %}
+                {% set class='form-control large' %}
+            {% endif %}
+            {% if not form.vars.compound %}{{ form_label(form, '', {'label_attr': {'class':'control-label' } }) }} {% endif %}
+            {{ form_widget(form, {'attr' : { 'class' : class } }) }}
+            {{ form_errors(form) }}
+        </div>
+    {% endspaceless %}
+{% endblock form_row %}

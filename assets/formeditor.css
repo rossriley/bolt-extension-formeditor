@@ -1,0 +1,50 @@
+#form_fields .form-field-row {
+    position: relative;
+}
+#form_fields .form-field-row label {
+    font-size:12px;
+}
+#form_field_list {
+    margin-bottom:15px;
+}
+
+#form_fields .form-field-row:nth-child(2n+0) {
+    background: #f1f1f1;
+    margin:10px 0;
+} 
+#form_fields .form-field-row input {
+    width:100%;
+}
+#form_fields .form-field-row small {
+    color:#999;
+    line-height:90%;
+    display: inline-block;
+    margin: 5px 0;
+}
+#form_fields .form-field-row .select2-container {
+    width:100%;
+}
+#form_fields .sort-handle {
+    float:left;
+    margin-top:40px;
+    margin-right:-10px;
+}
+#form_fields .delete-icon {
+    position: absolute;
+    right:0px;
+    top:5px;
+    z-index: 10;
+}
+#form_fields .form-row-delete {
+    color:#666;
+}
+#form_fields .required-row-container {
+    padding-top:28px;
+}
+#form_fields .required-row-container input {
+    width:auto;
+    float:left;
+}
+#form_fields .required-row-container label {
+    display: inline;
+}

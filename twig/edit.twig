@@ -1,0 +1,108 @@
+
+{% extends "_base/_page-nav.twig" %}
+
+{% block page_nav 'Settings/ExtendBolt' %}
+
+{% block page_title %}
+{{ __('Form Editor') }}
+{% endblock page_title %}
+
+{% block page_subtitle %}
+{% endblock page_subtitle %}
+
+{# clear default messages, because we use them in a different spot, in this template #}
+{% block messages "" %}
+
+{% block page_main %}
+
+    <div class="row boltbb-bolt-container">
+        <div class="col-md-9">
+
+            {% include '_sub/_messages.twig' %}
+
+            <section class="forums-container">                
+                <div class="row">
+                    <div class="col-xs-12">
+                        {% form_theme form 'form_editor_theme.twig' %}
+                        <form action="" method="POST" class="form-horizontal" role="form">
+                        
+                            <ul class="nav nav-tabs" id="filtertabs">
+                                <li class="active"><a href="#tab-main" data-toggle="tab">Settings</a></li>
+                                <li><a href="#tab-fields" data-toggle="tab">Fields</a></li>
+                            </ul>
+                            
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab-main">
+                        
+                                    <h4>{{ __('Notification Settings') }}</h4>
+                                    <fieldset class="text">
+                                        {{ form_widget(form.notification) }}
+                                    </fieldset>
+                                    <hr>
+                                    <h4>{{ __('Feedback Settings') }}</h4>
+                                    <fieldset class="text">
+                                        {{ form_widget(form.feedback) }}
+                                    </fieldset>
+                                    <hr>
+                                </div>
+                                <div class="tab-pane" id="tab-fields">
+                                    {% form_theme form 'form_editor_fields_theme.twig' %}
+                                    <fieldset class="text" id="form_field_list">
+                                        {{ form_widget(form.fields) }}
+                                    </fieldset>
+                                    <fieldset class="text">
+                                        <button id="form_field_add" type="button" class="btn btn-default btn-number">
+                                            <i class="fa fa-plus fa-fw"></i> Add New Field
+                                        </button>
+                                    </fieldset>
+                                    <hr>
+                                    
+                                </div>
+                            <fieldset>
+                                <input type="submit" value="Save" name="submit" class="btn btn-primary">
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+
+            </section>
+            <hr />
+        </div>
+
+        <aside class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading"><i class="fa fa-link fa-fw"></i>Quick Links</div>
+                <div class="panel-body">
+                    <ul>
+                        <li>
+                            <a href="{{url('formeditor.index')}}">
+                                <i class="fa fa-file-text-o fa-fw"></i>Back to form list
+                            </a>
+                        </li>
+                    </ul>
+                    <hr>
+                    <div class="btn-group">
+                        <form action="{{ url('formeditor.delete', {'formname':formname}) }}" method="post" id="sidebarformdelete">
+                            <button class="btn btn-silent-danger"  type="submit">
+                                <i class="fa fa-trash"></i> Delete Form
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+    
+    <script type="text/javascript">
+       
+    </script>
+    
+    <style type="text/css">
+        #form_fields .form-field-row:nth-child(2n+0) {
+            background: #f1f1f1;
+            margin:10px 0;
+        } 
+    </style>
+
+{% endblock page_main %}

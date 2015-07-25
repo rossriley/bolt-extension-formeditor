@@ -1,0 +1,80 @@
+
+{% extends "_base/_page-nav.twig" %}
+
+{% block page_nav 'Settings/ExtendBolt' %}
+
+{% block page_title %}
+{{ __('Form Editor') }}
+{% endblock page_title %}
+
+{% block page_subtitle %}
+{% endblock page_subtitle %}
+
+{# clear default messages, because we use them in a different spot, in this template #}
+{% block messages "" %}
+
+{% block page_main %}
+
+    <div class="row boltbb-bolt-container">
+        <div class="col-md-9">
+
+            {% include '_sub/_messages.twig' %}
+
+            <section class="forums-container">
+                <h3>{{ __('Available Forms') }}</h3>
+                <div class="table-responsive">
+                    <table class="table-striped dashboardlisting userlist">
+                        <thead>
+                            <tr>
+                                <th>{{ __('Name') }}</th>
+                                <th>{{ __('Actions') }}</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for formname, form in forms %}
+                                <tr>
+                                    <td class="name">{{formname}}</td>
+                                    <td class="actions">
+                                        <a href="{{ path('formeditor.edit', {'formname': formname}) }}" class="btn btn-default btn-xs">
+                                            <i class="fa fa-edit"></i> {{ __('Edit') }}
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <hr />
+        </div>
+
+        <aside class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading"><i class="fa fa-cog fa-fw"></i>Create a new form</div>
+                <div class="panel-body">
+                    <p>Choose a name for the form and hit submit</p>
+                    {% form_theme create 'form_bolt_layout.twig' %}
+                    <form action="" method="POST" class="form-horizontal" role="form">
+                        <div class="row">
+                            {% for field in create %}
+                                <div class="col-sm-12">
+                                    {% if 'token' not in form_label(field) %}
+                                        {{ form_label(field)}}
+                                    {% endif %}
+                                    {{ form_widget(field) }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="clearfix"><hr></div>
+                        <fieldset>
+                            <input type="submit" value="Create Form" name="submit" class="btn btn-primary">
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+{% endblock page_main %}

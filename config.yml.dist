@@ -1,0 +1,15 @@
+# All other configuration depends on the main Bolt Forms config file
+# The defaults here specify what values a new form are prefilled with.
+
+defaults:
+    notification:
+        enabled: true
+        debug: false
+        from_name: name
+        from_email: email
+    feedback:
+        success: "Message submission sucessful"
+        error: "There are errors in the form, please fix before trying to resubmit"
+    database:
+#       contenttype: feedback
+    fields: {}
