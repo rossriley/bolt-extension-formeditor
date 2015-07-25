@@ -5,7 +5,7 @@ namespace Bolt\Extensions\Ross\FormEditor;
 use Bolt\Application;
 use Bolt\BaseExtension;
 
-class FormEditorExtension extends BaseExtension
+class Extension extends BaseExtension
 {
     
     const CONTAINER = 'extensions.formeditor';
