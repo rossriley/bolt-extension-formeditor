@@ -51,9 +51,9 @@
 
         <aside class="col-md-3">
             <div class="panel panel-default">
-                <div class="panel-heading"><i class="fa fa-cog fa-fw"></i>Create a new form</div>
+                <div class="panel-heading"><i class="fa fa-cog fa-fw"></i>{{__('Create a new form') }}</div>
                 <div class="panel-body">
-                    <p>Choose a name for the form and hit submit</p>
+                    <p>{{ __('Choose a name for the form and hit create') }}</p>
                     {% form_theme create 'form_bolt_layout.twig' %}
                     <form action="" method="POST" class="form-horizontal" role="form">
                         <div class="row">
@@ -68,7 +68,7 @@
                         </div>
                         <div class="clearfix"><hr></div>
                         <fieldset>
-                            <input type="submit" value="Create Form" name="submit" class="btn btn-primary">
+                            <input type="submit" value="{{__('Create Form') }}" name="submit" class="btn btn-primary">
                         </fieldset>
                     </form>
                 </div>

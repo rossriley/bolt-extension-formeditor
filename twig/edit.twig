@@ -52,7 +52,7 @@
                                     </fieldset>
                                     <fieldset class="text">
                                         <button id="form_field_add" type="button" class="btn btn-default btn-number">
-                                            <i class="fa fa-plus fa-fw"></i> Add New Field
+                                            <i class="fa fa-plus fa-fw"></i> {{ __('Add New Field') }}
                                         </button>
                                     </fieldset>
                                     <hr>
@@ -71,12 +71,12 @@
 
         <aside class="col-md-3">
             <div class="panel panel-default">
-                <div class="panel-heading"><i class="fa fa-link fa-fw"></i>Quick Links</div>
+                <div class="panel-heading"><i class="fa fa-link fa-fw"></i>{{ __('Quick Links') }}</div>
                 <div class="panel-body">
                     <ul>
                         <li>
                             <a href="{{url('formeditor.index')}}">
-                                <i class="fa fa-file-text-o fa-fw"></i>Back to form list
+                                <i class="fa fa-file-text-o fa-fw"></i>{{ __('Back to form list') }}
                             </a>
                         </li>
                     </ul>
@@ -84,7 +84,7 @@
                     <div class="btn-group">
                         <form action="{{ url('formeditor.delete', {'formname':formname}) }}" method="post" id="sidebarformdelete">
                             <button class="btn btn-silent-danger"  type="submit">
-                                <i class="fa fa-trash"></i> Delete Form
+                                <i class="fa fa-trash"></i> {{ __('Delete Form') }}
                             </button>
                         </form>
                     </div>
@@ -93,16 +93,5 @@
         </aside>
 
     </div>
-    
-    <script type="text/javascript">
-       
-    </script>
-    
-    <style type="text/css">
-        #form_fields .form-field-row:nth-child(2n+0) {
-            background: #f1f1f1;
-            margin:10px 0;
-        } 
-    </style>
 
 {% endblock page_main %}
