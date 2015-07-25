@@ -148,25 +148,8 @@ class FormEditorController implements ControllerProviderInterface
 
         $cleanname = preg_replace('/[^a-zA-Z0-9_]/', '', $newname);
 
-        $defaults = [
-            'notification' => [
-                'enabled' => true,
-                'debug' => false,
-                'from_name' => 'name',
-                'from_email' => 'email',
-            ],
-            'feedback' => [
-                'success' => 'Message submission sucessful',
-                'error' => 'There are errors in the form, please fix before trying to resubmit',
-            ],
-            'database' => [
-                'contenttype' => 'feedback',
-            ],
-            'fields' => [],
-        ];
-
         $fulldata = $this->read();
-        $fulldata[$cleanname] = $defaults;
+        $fulldata[$cleanname] = $this->config['defaults'];
 
         if ($this->write($fulldata)) {
             $this->app['session']->getFlashBag()->set('success', 'Your new form has been created');
