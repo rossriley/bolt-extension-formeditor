@@ -23,3 +23,5 @@ the label of a setup form field but the constraints / validations will stay in p
 This extension is new and has not yet been tested by a large audience, and as such it may carry a few risks.
 
 It is recommended that you keep a backup of any current `boltforms.yml` files during the evaluation of this.
+
+Note that this extension will only work on **PHP 5.4 or later**.

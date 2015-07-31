@@ -31,12 +31,27 @@ class Extension extends BaseExtension
     public function initialize()
     {
         $path = $this->app['config']->get('general/branding/path') . '/extensions/formeditor';
-        $this->app->mount($path, new Controller\FormEditorController());
-        $this->addJavascript('assets/jquery.sortable.min.js', 1);
-        $this->addJavascript('assets/formeditor.js', 1);
-        $this->addCss('assets/formeditor.css');
-        $this->addMenuOption('Edit Forms', $this->app['resources']->getUrl('bolt') . 'extensions/formeditor', 'fa:pencil-square-o');
+        
+        if ($this->checkAuth()) {
+            $this->app->mount($path, new Controller\FormEditorController());
+            $this->addJavascript('assets/jquery.sortable.min.js', 1);
+            $this->addJavascript('assets/formeditor.js', 1);
+            $this->addCss('assets/formeditor.css');
+            $this->addMenuOption('Edit Forms', $this->app['resources']->getUrl('bolt') . 'extensions/formeditor', 'fa:pencil-square-o');
+        }
 
+    }
+    
+    public function checkAuth()
+    {
+        $currentUser = $this->app['users']->getCurrentUser();
+        $currentUserId = $currentUser['id'];
+        foreach (['admin','root','developer', 'editor'] as $role) {
+            if ($this->app['users']->hasRole($currentUserId, $role)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
