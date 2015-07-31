@@ -42,6 +42,11 @@ class Extension extends BaseExtension
 
     }
     
+    /**
+     * Checks that the user has a non-guest role.
+     * 
+     * @return bool
+     */
     public function checkAuth()
     {
         $currentUser = $this->app['users']->getCurrentUser();
@@ -51,6 +56,7 @@ class Extension extends BaseExtension
                 return true;
             }
         }
+        
         return false;
     }
 
