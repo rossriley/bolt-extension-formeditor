@@ -302,9 +302,13 @@ class FormEditorController implements ControllerProviderInterface
     protected function getForms($form = false)
     {
         $data = $this->read();
-        unset($data['csrf']);
-        unset($data['debug']);
-        unset($data['templates']);
+
+        if (class_exists('\Bolt\Extension\Bolt\BoltForms\Extension')) {
+            $unsetKeys = $this->app[\Bolt\Extension\Bolt\BoltForms\Extension::CONTAINER]->getConfigKeys();
+            foreach ($unsetKeys as $unsetKey) {
+                unset($data[$unsetKey]);
+            }
+        }
 
         if ($form && array_key_exists($form, $data)) {
             return $data[$form];
