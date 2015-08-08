@@ -44,7 +44,26 @@ class FormEditorController implements ControllerProviderInterface
         $ctr->post('/delete/{formname}', array($this, 'delete'))
             ->bind('formeditor.delete');
 
+        $ctr->before(array($this, 'before'));
+
         return $ctr;
+    }
+
+    /**
+     * Controller before render
+     *
+     * @param Request            $request
+     * @param \Silex\Application $app
+     */
+    public function before(Request $request, Application $app)
+    {
+        // Enable HTML snippets in our routes so that JS & CSS gets inserted
+        $app['htmlsnippets'] = true;
+
+        // Add our JS & CSS
+        $app[Extension::CONTAINER]->addJavascript('assets/jquery.sortable.min.js', array('late' => true));
+        $app[Extension::CONTAINER]->addJavascript('assets/formeditor.js', array('late' => true));
+        $app[Extension::CONTAINER]->addCss('assets/formeditor.css');
     }
 
     /**
@@ -302,9 +321,13 @@ class FormEditorController implements ControllerProviderInterface
     protected function getForms($form = false)
     {
         $data = $this->read();
-        unset($data['csrf']);
-        unset($data['debug']);
-        unset($data['templates']);
+
+        if (class_exists('\Bolt\Extension\Bolt\BoltForms\Extension')) {
+            $unsetKeys = $this->app[\Bolt\Extension\Bolt\BoltForms\Extension::CONTAINER]->getConfigKeys();
+            foreach ($unsetKeys as $unsetKey) {
+                unset($data[$unsetKey]);
+            }
+        }
 
         if ($form && array_key_exists($form, $data)) {
             return $data[$form];
