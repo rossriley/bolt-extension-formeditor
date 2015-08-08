@@ -2,7 +2,7 @@
 
 ### Experimental warning - read details below
 
-This is a small extension that builds on top of the `bolt/forms` extension to provide
+This is a small extension that builds on top of the `bolt/boltforms` extension to provide
 a very basic UI for editors to use without needing to edit a YML file.
 
 Functionality supported so far:
@@ -22,6 +22,7 @@ the label of a setup form field but the constraints / validations will stay in p
 
 This extension is new and has not yet been tested by a large audience, and as such it may carry a few risks.
 
-It is recommended that you keep a backup of any current `boltforms.yml` files during the evaluation of this.
+It is recommended that you keep a backup of any current `app/config/extensions/boltforms.bolt.yml` 
+files during the evaluation of this.
 
 Note that this extension will only work on **PHP 5.4 or later**.
