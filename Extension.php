@@ -32,9 +32,6 @@ class Extension extends BaseExtension
 
         if ($this->checkAuth()) {
             $this->app->mount($path, new Controller\FormEditorController());
-            $this->addJavascript('assets/jquery.sortable.min.js', 1);
-            $this->addJavascript('assets/formeditor.js', 1);
-            $this->addCss('assets/formeditor.css');
             $this->addMenuOption('Edit Forms', $this->app['resources']->getUrl('bolt').'extensions/formeditor', 'fa:pencil-square-o');
         }
     }
