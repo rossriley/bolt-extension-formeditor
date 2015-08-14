@@ -228,9 +228,9 @@ class FormEditorController implements ControllerProviderInterface
                 $fulldata[$formname]['fields'][$fieldkey]['type'] = $values['type'];
                 $fulldata[$formname]['fields'][$fieldkey]['options']['label'] = $values['label'];
                 if ($values['required'] == true) {
-                    $fulldata[$formname]['fields'][$fieldkey]['required'] = true;
+                    $fulldata[$formname]['fields'][$fieldkey]['options']['required'] = true;
                 } else {
-                    $fulldata[$formname]['fields'][$fieldkey]['required'] = false;
+                    $fulldata[$formname]['fields'][$fieldkey]['options']['required'] = false;
                 }
 
                 if ($values['type'] == 'choice') {
