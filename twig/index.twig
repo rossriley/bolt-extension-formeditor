@@ -34,7 +34,11 @@
                         <tbody>
                             {% for formname, form in forms %}
                                 <tr>
-                                    <td class="name">{{formname}}</td>
+                                    <td class="name">
+                                        <a href="{{ path('formeditor.edit', {'formname': formname}) }}">
+                                            {{formname}}
+                                        </a>
+                                    </td>
                                     <td class="actions">
                                         <a href="{{ path('formeditor.edit', {'formname': formname}) }}" class="btn btn-default btn-xs">
                                             <i class="fa fa-edit"></i> {{ __('Edit') }}
