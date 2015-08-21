@@ -247,9 +247,9 @@ class FormEditorController implements ControllerProviderInterface
                 $fulldata[$formname]['fields'][$fieldkey]['type'] = $values['type'];
                 $fulldata[$formname]['fields'][$fieldkey]['options']['label'] = $values['label'];
                 if ($values['required'] == true) {
-                    $fulldata[$formname]['fields'][$fieldkey]['options']['attr']['required'] = true;
+                    $fulldata[$formname]['fields'][$fieldkey]['options']['required'] = true;
                 } else {
-                    $fulldata[$formname]['fields'][$fieldkey]['options']['attr']['required'] = false;
+                    $fulldata[$formname]['fields'][$fieldkey]['options']['required'] = false;
                 }
 
                 if ($values['type'] == 'choice') {
@@ -286,14 +286,6 @@ class FormEditorController implements ControllerProviderInterface
         foreach ($data['fields'] as $field => &$options) {
             $data['fields'][$field]['name'] = $field;
             $data['fields'][$field] = array_merge($data['fields'][$field], (array) $data['fields'][$field]['options']);
-
-            if (isset($data['fields'][$field]['attr'])) {
-                if (isset($data['fields'][$field]['attr']['required'])) //Add required attribute to form
-                    $data['fields'][$field]['required'] = $data['fields'][$field]['attr']['required'];
-
-            } else { //Default required to FALSE if not SET on form
-                $data['fields'][$field]['required'] = FALSE;
-            }
 
             if (isset($data['fields'][$field]['choices'])) {
                 $data['fields'][$field]['choices'] = implode(',', $data['fields'][$field]['choices']);
