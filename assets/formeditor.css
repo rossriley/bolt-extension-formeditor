@@ -1,6 +1,13 @@
 #form_fields .form-field-row {
     position: relative;
 }
+
+#form_fields .outer-row {
+    border: 1px solid #E1E1E1;
+    border-radius: 15px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1) inset;
+}
+
 #form_fields .form-field-row label {
     font-size:12px;
 }
@@ -9,7 +16,6 @@
 }
 
 #form_fields .form-field-row:nth-child(2n+0) {
-    background: #f1f1f1;
     margin:10px 0;
 } 
 #form_fields .form-field-row input {

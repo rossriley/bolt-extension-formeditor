@@ -2,7 +2,6 @@
     {% spaceless %}
         <div class="form-field-row
             {%- if errors|length > 0 -%} has-error{%- endif -%}
-            {%- if form.children|length -%} outer-field-row{%- endif -%}
         ">
             {% if form.children|length %}
                 <div class="pull-right delete-icon"><a href="#" class="form-row-delete"><i class="fa fa-trash fa-lg"></i></a></div>
