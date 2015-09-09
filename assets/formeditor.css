@@ -40,7 +40,9 @@
 }
 #form_fields .form-row-icons .btn {
     z-index: 10;
-    color:#666;
+}
+#form_fields .form-row-icons .btn a {
+    color:#666;    
 }
 
 #form_fields .required-row-container {
