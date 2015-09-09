@@ -11,7 +11,7 @@ Bolt.formeditor = {
         $("#form_fields").sortable();
         $('#form_fields input.choices-row').select2({tags: true, tokenSeparators: [',']});
         
-        $('#form_fields').on('click', '.delete-icon .form-row-delete', function(e){ 
+        $('#form_fields').on('click', '.form-row-delete', function(e){ 
             controller.deleteField($(this));      
             e.preventDefault();
         });
