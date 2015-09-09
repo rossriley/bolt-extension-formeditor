@@ -35,8 +35,8 @@
 }
 #form_fields .form-row-icons {
     position: absolute;
-    right:0px;
-    top:5px; 
+    right:-15px;
+    bottom:0px; 
 }
 #form_fields .form-row-icons .btn {
     z-index: 10;
