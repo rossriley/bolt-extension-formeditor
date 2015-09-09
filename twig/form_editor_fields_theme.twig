@@ -4,7 +4,11 @@
             {%- if errors|length > 0 -%} has-error{%- endif -%}
         ">
             {% if form.children|length %}
-                <div class="pull-right delete-icon"><a href="#" class="form-row-delete"><i class="fa fa-trash fa-lg"></i></a></div>
+                    <div class="btn-group btn-group-vertical pull-right">
+                        <div class="delete-icon">
+                            <a href="#" class="form-row-delete"><i class="fa fa-trash fa-lg"></i></a>
+                        </div>
+                    </div>
                 <div class="sort-handle"><i class="fa fa-sort"></i></div>
                 <div class="row outer-row well">
                     <div class="col-xs-12">
