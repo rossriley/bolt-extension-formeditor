@@ -122,6 +122,7 @@ class FormEditorController implements ControllerProviderInterface
         return $app['render']->render('edit.twig', [
             'form' => $form->createView(),
             'formname' => $formname,
+            'extendedFields' => ['placeholder', '']
         ]);
     }
 

@@ -26,8 +26,10 @@ class FormelementType extends AbstractType
                 'label' => 'Type of form element',
                 'choices' => [
                     'text' => 'Text',
+                    'email' => 'Email',
                     'textarea' => 'Text Area',
                     'choice' => 'Select Dropdown',
+                    'radio' => 'Radio Buttons',
                     'submit' => 'Submit Button',
                 ],
             ])
@@ -39,6 +41,14 @@ class FormelementType extends AbstractType
             ->add('required', 'checkbox', [
                 'label' => 'Required Field',
                 'required' => false,
+            ])
+            ->add('placeholder',   'text', [
+                'label' => 'Placeholder Text',
+                'attr' => ['help' => 'Appears in field as default']
+            ])
+            ->add('constraints',   'choice', [
+                'label' => 'Validation Constraints',
+                'attr' => ['help' => 'Appears in field as default']
             ]);
     }
 
