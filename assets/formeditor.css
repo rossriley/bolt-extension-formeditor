@@ -55,6 +55,5 @@
     display: inline;
 }
 #form_fields .form-field-row:nth-child(2n+0) {
-    background: #f1f1f1;
     margin:10px 0;
 } 
