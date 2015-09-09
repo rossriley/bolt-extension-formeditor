@@ -30,6 +30,7 @@ class FormelementType extends AbstractType
                     'textarea' => 'Text Area',
                     'choice' => 'Select Dropdown',
                     'radio' => 'Radio Buttons',
+                    'checkbox' => 'Check-Box',
                     'submit' => 'Submit Button',
                 ],
             ])
