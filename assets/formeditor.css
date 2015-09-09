@@ -33,6 +33,11 @@
     margin-top:40px;
     margin-right:-10px;
 }
+#form_fields .form-row-icons {
+    position: absolute;
+    right:0px;
+    top:5px; 
+}
 #form_fields .delete-icon {
     z-index: 10;
 }
