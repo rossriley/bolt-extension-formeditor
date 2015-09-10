@@ -51,7 +51,12 @@ class FormelementType extends AbstractType
                 'label' => 'Validation Constraints',
                 'attr' => ['help' => 'Makes sure the value submitted validates against these'],
                 'expanded' => true,
-                'multiple' => true
+                'multiple' => true,
+                'choices' => [
+                    'NotBlank' => 'Not Blank',
+                    'Email' => 'Valid Email',
+                    'Url' => 'Valid Url'
+                ],
             ]);
     }
 
