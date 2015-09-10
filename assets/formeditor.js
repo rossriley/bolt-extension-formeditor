@@ -61,10 +61,10 @@ Bolt.formeditor = {
         $("#form_fields select.type-row").each(function(){
             varfieldtype = $(this).find("option:selected").val();
             var parent = $(this).closest('.outer-row');
-            if( $.inArray(varfieldtype, choicefields) ) {
+            if( $.inArray(varfieldtype, choicefields) !== -1 ) {
                 parent.find('.required-row-container').hide();
                 parent.find('.choices-row-container').show();
-            } else if( $.inArray(varfieldtype, textfields) ) {
+            } else if( $.inArray(varfieldtype, textfields) !== -1 ) {
                 parent.find('.required-row-container').show();
                 parent.find('.choices-row-container').hide();
             } else {
