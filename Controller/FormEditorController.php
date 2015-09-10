@@ -120,7 +120,7 @@ class FormEditorController implements ControllerProviderInterface
         }
         
         $formView = $form->createView();
-        $formView->vars['extendedFields'] = ['placeholder', 'constraints'];
+        $formView->vars['extendedFields'] = ['placeholder', 'constraints']];
 
         return $app['render']->render('edit.twig', [
             'form' => $formView,

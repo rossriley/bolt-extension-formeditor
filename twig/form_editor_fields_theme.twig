@@ -1,6 +1,6 @@
 {% block form_row %}
     {% spaceless %}
-        {{dump(form)}}
+        {% if form.children|length %}{{dump(form)}}{%endif%}
         <div class="form-field-row
             {%- if errors|length > 0 -%} has-error{%- endif -%}
         ">
