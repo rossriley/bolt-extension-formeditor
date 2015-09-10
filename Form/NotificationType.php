@@ -15,7 +15,7 @@ class NotificationType extends AbstractType
         $builder
             ->add('subject',   'text', [])
             ->add('to_name',   'text', [])
-            ->add('to_email',   'text', []);
+            ->add('to_email',   'text', [])
             ->add('from_email',  'text', ['This email appears in the From address when sending a notification (as well as an email you can also use a field name)']);
     }
 
