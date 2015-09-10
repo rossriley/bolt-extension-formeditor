@@ -189,6 +189,7 @@ class FormEditorController implements ControllerProviderInterface
     {
         $formdata = $this->getForms($formname);
         $formdata = $this->simplifyFormData($formdata);
+        $formdata = $this->mapExtraTypes($formdata);
 
         $form = $this->app['form.factory']
             ->createBuilder('form')
@@ -262,7 +263,7 @@ class FormEditorController implements ControllerProviderInterface
                         $fulldata[$formname]['fields'][$fieldkey]['options']['expanded'] = true;
                         $fulldata[$formname]['fields'][$fieldkey]['options']['multiple'] = true;
                     }
-                    if ($values['type'] == 'checkbox-group') {
+                    if ($values['type'] == 'radio') {
                         $fulldata[$formname]['fields'][$fieldkey]['type'] = 'choice';
                         $fulldata[$formname]['fields'][$fieldkey]['options']['expanded'] = true;
                     }
@@ -305,6 +306,29 @@ class FormEditorController implements ControllerProviderInterface
             unset($data['fields'][$field]['options']);
         }
 
+        return $data;
+    }
+    
+    /**
+     * This method maps extra types to their native Symfony Forms equivalent.
+     * 
+     * @param  array $data
+     * @return array
+     */
+    protected function mapExtraTypes($data)
+    {
+        foreach ($data as $name => &$field) {
+            if ($field['type'] == 'choice') {
+                if ($field['options']['expanded'] == true) {
+                    if ($field['options']['multiple'] == true) {
+                        $field['type'] = 'checkbox-group';
+                    } else {
+                        $field['type'] = 'radio';
+                    }
+                }
+            }
+        }
+        
         return $data;
     }
 
