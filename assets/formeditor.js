@@ -52,17 +52,19 @@ Bolt.formeditor = {
                 parent.replaceWith(replace);
             });
             
-        }
+        }   
     },
     
     handleConditionals: function() {
+        var textfields = ['text', 'email', 'number', 'url', 'textarea'];
+        var choicefields = ['choice', 'radio', 'checkbox-group'];
         $("#form_fields select.type-row").each(function(){
             varfieldtype = $(this).find("option:selected").val();
             var parent = $(this).closest('.outer-row');
-            if(varfieldtype == 'choice' || varfieldtype == 'radio' || varfieldtype == 'checkbox-group' ) {
+            if( $.inArray(varfieldtype, choicefields) ) {
                 parent.find('.required-row-container').hide();
                 parent.find('.choices-row-container').show();
-            } else if(varfieldtype == 'text' || varfieldtype == 'textarea') {
+            } else if( $.inArray(varfieldtype, textfields) ) {
                 parent.find('.required-row-container').show();
                 parent.find('.choices-row-container').hide();
             } else {

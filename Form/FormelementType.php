@@ -33,6 +33,9 @@ class FormelementType extends AbstractType
                     'radio' => 'Radio Buttons',
                     'checkbox' => 'Check-Box',
                     'checkbox-group' => 'Check-Box Options',
+                    'email' => 'Email',
+                    'number' => 'Number',
+                    'url' => 'Url',
                     'submit' => 'Submit Button',
                 ],
             ])
