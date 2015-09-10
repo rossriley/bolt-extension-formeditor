@@ -28,7 +28,6 @@ class FormelementType extends AbstractType
                 'label' => 'Type of form element',
                 'choices' => [
                     'text' => 'Text',
-                    'email' => 'Email',
                     'textarea' => 'Text Area',
                     'choice' => 'Select Dropdown',
                     'radio' => 'Radio Buttons',
@@ -65,7 +64,7 @@ class FormelementType extends AbstractType
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
         parent::buildView($view, $form, $options);
-        $view->vars = array_merge($view->vars, ['mainFields' => ['name', 'label', 'type']]);
+        $view->vars = array_merge($view->vars, ['mainFields' => ['name', 'label', 'type', 'choices', 'required']]);
     }
 
     public function getName()
