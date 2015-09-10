@@ -6,6 +6,10 @@
     padding:2px 10px 2px 2px;
 }
 
+#form_fields .extended-fields {
+    background:#FFF;
+}
+
 #form_fields .form-field-row label {
     font-size:12px;
 }

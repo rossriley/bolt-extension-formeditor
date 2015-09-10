@@ -8,14 +8,14 @@
             <div class="sort-handle"><i class="fa fa-sort"></i></div>
             <div class="row outer-row well">
                 <div class="col-xs-12">
-                    <div class="basic-fields">
+                    <div class="basic-fields row">
                         {% for field in form %}
                             {% if field.vars.name in mainFields%}
                                 {{form_row(field)}}
                             {% endif %}
                         {% endfor %}
                     </div>
-                    <div class="extended-fields">
+                    <div class="extended-fields row">
                         {% for field in form %}
                             {% if field.vars.name not in mainFields%}
                                 {{form_row(field)}}
