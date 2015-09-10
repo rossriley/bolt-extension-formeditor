@@ -8,6 +8,7 @@
 
 #form_fields .basic-fields {
     padding-left:20px;
+    padding-right:20px;
 }
 #form_fields .extended-fields {
     background:#FFF;
@@ -43,7 +44,7 @@
 #form_fields .form-row-icons {
     position: absolute;
     right:-15px;
-    bottom:0px; 
+    top:0px; 
 }
 #form_fields .form-row-icons .btn {
     z-index: 10;
