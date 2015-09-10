@@ -59,7 +59,7 @@ Bolt.formeditor = {
         $("#form_fields select.type-row").each(function(){
             varfieldtype = $(this).find("option:selected").val();
             var parent = $(this).closest('.outer-row');
-            if(varfieldtype == 'choice' ) {
+            if(varfieldtype == 'choice' || varfieldtype == 'radio' ) {
                 parent.find('.required-row-container').hide();
                 parent.find('.choices-row-container').show();
             } else if(varfieldtype == 'text' || varfieldtype == 'textarea') {
