@@ -10,7 +10,7 @@
                 <div class="col-xs-12">
                     {% for field in form %}
                         {{form_row(field)}}
-                    {% endfor %}
+                    {% endfor   %}
                 </div>
             </div>
         </div>
@@ -18,17 +18,19 @@
 {% endblock form_fields_row %}
 
 {% block form_row %}
-    <div class="form-field-row
-        {%- if errors|length > 0 -%} has-error{%- endif -%}
-    ">
-        {% set class = form.vars.name~'-row' %}
-        <div class="col-xs-3 field-row-container {{class~'-container'}}">
-            {{ form_label(form, '', {'label_attr': {'class':'control-label x-small' } }) }}
-            {{ form_widget(form, {'attr' : { 'class' : class } }) }}
-            {% if form.vars.attr.help %}
-                <small>{{ form.vars.attr.help }}</small>
-            {% endif %}
-            {{ form_errors(form) }}
+    {% spaceless %}
+        <div class="form-field-row
+            {%- if errors|length > 0 -%} has-error{%- endif -%}
+        ">
+            {% set class = form.vars.name~'-row' %}
+            <div class="col-xs-3 field-row-container {{class~'-container'}}">
+                {{ form_label(form, '', {'label_attr': {'class':'control-label x-small' } }) }}
+                {{ form_widget(form, {'attr' : { 'class' : class } }) }}
+                {% if form.vars.attr.help %}
+                    <small>{{ form.vars.attr.help }}</small>
+                {% endif %}
+                {{ form_errors(form) }}
+            </div>
         </div>
-    </div>
+    {% endspaceless %}
 {% endblock form_row %}
