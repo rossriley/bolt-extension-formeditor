@@ -48,6 +48,7 @@ class FormelementType extends AbstractType
             ->add('placeholder',   'text', [
                 'label' => 'Placeholder Text',
                 'attr' => ['help' => 'Appears in field as default']
+                'required' => false,
             ])
             ->add('constraints',   'choice', [
                 'label' => 'Validation Constraints',
@@ -58,6 +59,7 @@ class FormelementType extends AbstractType
                     'Email' => 'Valid Email',
                     'Url' => 'Valid Url'
                 ]
+                'required' => false,
             ]);
     }
     

@@ -64,7 +64,8 @@
     margin:10px 0;
 } 
 #form_fields .constraints-row label {
-    display: inline;
+    display: inline-block;
+    width:80%;
 }
 #form_fields .constraints-row input {
     width: auto;
