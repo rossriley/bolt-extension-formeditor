@@ -321,9 +321,9 @@ class FormEditorController implements ControllerProviderInterface
             if ($field['type'] == 'choice') {
                 if ($field['expanded'] == true) {
                     if ($field['multiple'] == true) {
-                        $field['type'] = 'checkbox-group';
+                        $data['fields'][$name]['type'] = 'checkbox-group';
                     } else {
-                        $field['type'] = 'radio';
+                        $data['fields'][$name]['type'] = 'radio';
                     }
                 }
             }
