@@ -4,6 +4,8 @@ namespace Bolt\Extensions\Ross\FormEditor\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
 
 /**
  * A Form Collection that sets up the options for the repeating field types.
@@ -58,6 +60,12 @@ class FormelementType extends AbstractType
                     'Url' => 'Valid Url'
                 ]
             ]);
+    }
+    
+    public function buildView(FormView $view, FormInterface $form, array $options)
+    {
+        parent::buildView($view, $form, $options);
+        $view->vars = array_merge($view->vars, ['extendedFields' => ['placeholder', 'constraints']]);
     }
 
     public function getName()
