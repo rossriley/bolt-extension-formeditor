@@ -10,6 +10,7 @@
                 <div class="col-xs-12">
                     {% for field in form %}
                         {{form_row(field)}}
+                        {{dump(extendedFields)}}
                     {% endfor   %}
                 </div>
             </div>
