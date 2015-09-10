@@ -1,5 +1,6 @@
 {% block form_row %}
     {% spaceless %}
+        {{dump(extendedFields)}}
         <div class="form-field-row
             {%- if errors|length > 0 -%} has-error{%- endif -%}
         ">
