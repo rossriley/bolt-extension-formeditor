@@ -56,7 +56,7 @@ class FormelementType extends AbstractType
                     'NotBlank' => 'Not Blank',
                     'Email' => 'Valid Email',
                     'Url' => 'Valid Url'
-                ],
+                ]
             ]);
     }
 
