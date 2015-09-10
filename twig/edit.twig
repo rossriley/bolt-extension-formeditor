@@ -48,7 +48,7 @@
                                 <div class="tab-pane" id="tab-fields">
                                     {% form_theme form 'form_editor_fields_theme.twig' %}
                                     <fieldset class="text" id="form_field_list">
-                                        {{ form_widget(form.fields, {'extendedFields': extendedFields}) }}
+                                        {{ form_widget(form.fields) }}
                                     </fieldset>
                                     <fieldset class="text">
                                         <button id="form_field_add" type="button" class="btn btn-default btn-number">
