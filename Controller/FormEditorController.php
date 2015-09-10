@@ -257,12 +257,12 @@ class FormEditorController implements ControllerProviderInterface
 
                 if ($values['type'] == 'choice' || $values['type'] == 'checkbox-group' || $values['type'] == 'radio') {
                     $fulldata[$formname]['fields'][$fieldkey]['options']['choices'] = explode(',', $values['choices']);
-                    if ($values['type'] == 'checkbox-group')) {
+                    if ($values['type'] == 'checkbox-group') {
                         $fulldata[$formname]['fields'][$fieldkey]['type'] = 'choice';
                         $fulldata[$formname]['fields'][$fieldkey]['options']['expanded'] = true;
                         $fulldata[$formname]['fields'][$fieldkey]['options']['multiple'] = true;
                     }
-                    if ($values['type'] == 'checkbox-group')) {
+                    if ($values['type'] == 'checkbox-group') {
                         $fulldata[$formname]['fields'][$fieldkey]['type'] = 'choice';
                         $fulldata[$formname]['fields'][$fieldkey]['options']['expanded'] = true;
                     }
