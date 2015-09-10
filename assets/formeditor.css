@@ -63,3 +63,6 @@
 #form_fields .constraints-row label {
     display: inline;
 }
+#form_fields .constraints-row input {
+    width: auto;
+}
