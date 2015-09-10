@@ -76,7 +76,7 @@ Bolt.formeditor = {
         $("#form_fields .outer-row .extended-fields").hide();
         $("#form_fields").on('click', '.form-row-expand', function(){
             var parent = $(this).closest('.form-field-row');
-            var ext = parent.find('extended-fields');
+            var ext = parent.find('.extended-fields');
             $("#form_fields .extended-fields").not(ext).slideUp('fast');
             ext.slideToggle('fast');
         });
