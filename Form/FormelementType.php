@@ -49,7 +49,9 @@ class FormelementType extends AbstractType
             ])
             ->add('constraints',   'choice', [
                 'label' => 'Validation Constraints',
-                'attr' => ['help' => 'Appears in field as default']
+                'attr' => ['help' => 'Makes sure the value submitted validates against these'],
+                'expanded' => true,
+                'multiple' => true
             ]);
     }
 
