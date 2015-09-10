@@ -69,7 +69,7 @@ class FormelementType extends AbstractType
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
         parent::buildView($view, $form, $options);
-        $view->vars = array_merge($view->vars, ['mainFields' => ['name', 'label', 'type', 'choices', 'required']]);
+        $view->vars = array_merge($view->vars, ['mainFields' => ['name', 'label', 'type', 'choices']]);
     }
 
     public function getName()
