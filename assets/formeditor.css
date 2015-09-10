@@ -60,3 +60,6 @@
 #form_fields .form-field-row:nth-child(2n+0) {
     margin:10px 0;
 } 
+#form_fields .constraints-row label {
+    display: inline;
+}
