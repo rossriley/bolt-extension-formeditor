@@ -118,11 +118,13 @@ class FormEditorController implements ControllerProviderInterface
             $this->app['session']->getFlashBag()->set('success', 'Form successfully updated');
             $form = $this->buildForm($formname);
         }
+        
+        $formView = $form->createView();
+        $formView->set('extendedFields', ['placeholder', 'constraints']);
 
         return $app['render']->render('edit.twig', [
-            'form' => $form->createView(),
-            'formname' => $formname,
-            'extendedFields' => ['placeholder', 'constraints']
+            'form' => $formView,
+            'formname' => $formname
         ]);
     }
 
