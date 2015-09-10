@@ -317,10 +317,10 @@ class FormEditorController implements ControllerProviderInterface
      */
     protected function mapExtraTypes($data)
     {
-        foreach ($data as $name => &$field) {
+        foreach ((array)$data['fields'] as $name => &$field) {
             if ($field['type'] == 'choice') {
-                if ($field['options']['expanded'] == true) {
-                    if ($field['options']['multiple'] == true) {
+                if ($field['expanded'] == true) {
+                    if ($field['multiple'] == true) {
                         $field['type'] = 'checkbox-group';
                     } else {
                         $field['type'] = 'radio';
