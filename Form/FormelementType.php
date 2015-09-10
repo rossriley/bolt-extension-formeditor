@@ -32,6 +32,7 @@ class FormelementType extends AbstractType
                     'choice' => 'Select Dropdown',
                     'radio' => 'Radio Buttons',
                     'checkbox' => 'Check-Box',
+                    'checkbox-group' => 'Check-Box Options',
                     'submit' => 'Submit Button',
                 ],
             ])
@@ -54,7 +55,6 @@ class FormelementType extends AbstractType
                 'expanded' => true,
                 'multiple' => true,
                 'choices' => [
-                    'NotBlank' => 'Not Blank',
                     'Email' => 'Valid Email',
                     'Url' => 'Valid Url'
                 ]
