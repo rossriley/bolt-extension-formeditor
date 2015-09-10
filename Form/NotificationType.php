@@ -16,7 +16,12 @@ class NotificationType extends AbstractType
             ->add('subject',   'text', [])
             ->add('to_name',   'text', [])
             ->add('to_email',   'text', [])
-            ->add('from_email',  'text', ['This email appears in the From address when sending a notification (as well as an email you can also use a field name)']);
+            ->add('from_email',  'text', [
+                'attr'=> [
+                        'help'=> 'This email appears in the From address when sending a notification (as well as an email you can also use a field name)'
+                    ]
+                ]
+            );
     }
 
     public function getName()
