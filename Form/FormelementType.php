@@ -21,6 +21,7 @@ class FormelementType extends AbstractType
             ->add('label',   'text', [
                 'label' => 'Label for this form field',
                 'attr' => ['help' => 'This is the user-visible label'],
+                'required' => FALSE
             ])
             ->add('type',   'choice', [
                 'label' => 'Type of form element',
