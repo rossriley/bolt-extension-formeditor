@@ -93,7 +93,7 @@ class FormEditorController implements ControllerProviderInterface
             }
         }
 
-        return $app['render']->render('index.twig', [
+        return $app['render']->render('formeditor/index.twig', [
             'forms' => $this->getForms(),
             'create' => $form->createView(),
         ]);
@@ -119,7 +119,7 @@ class FormEditorController implements ControllerProviderInterface
             $form = $this->buildForm($formname);
         }
 
-        return $app['render']->render('edit.twig', [
+        return $app['render']->render('formeditor/edit.twig', [
             'form' => $form->createView(),
             'formname' => $formname,
         ]);
