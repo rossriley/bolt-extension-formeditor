@@ -3,23 +3,46 @@
 namespace Bolt\Extensions\Ross\FormEditor;
 
 use Bolt\Application;
-use Bolt\BaseExtension;
+use Bolt\Extension\SimpleExtension;
 
-class Extension extends BaseExtension
+class Extension extends SimpleExtension
 {
     const CONTAINER = 'extensions.formeditor';
 
-    /**
-     * Constructor adds an additional Twig path if we are in the Backend.
-     *
-     * @param Application $app
-     */
-    public function __construct(Application $app)
+    protected function registerAssets()
     {
-        parent::__construct($app);
-        if ($this->app['config']->getWhichEnd() == 'backend') {
-            $this->app['twig.loader.filesystem']->prependPath(__DIR__.'/twig');
-        }
+        return [
+            (new Stylesheet('formeditor.css'))->setZone('backend'),
+            (new JavaScript('formeditor.js'))->setZone('backend'),
+            (new JavaScript('jquery.sortable.js'))->setZone('backend'),
+        ];
+    }
+
+    protected function registerTwigFunctions()
+    {
+        return [
+
+        ];
+    }
+
+    protected function registerTwigPaths()
+    {
+        return [
+            'twig' => ['position' => 'prepend', 'namespace' => 'bolt']
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function registerMenuEntries()
+    {
+        return [
+            (new MenuEntry('formeditor', 'extensions/formeditor'))
+                ->setLabel(Trans::__('Edit Forms'))
+                ->setIcon('fa:pencil-square-o')
+                ->setPermission('admin||root||developer||editor'),
+        ];
     }
 
     /**
@@ -32,7 +55,6 @@ class Extension extends BaseExtension
 
         if ($this->checkAuth()) {
             $this->app->mount($path, new Controller\FormEditorController());
-            $this->addMenuOption('Edit Forms', $this->app['resources']->getUrl('bolt').'extensions/formeditor', 'fa:pencil-square-o');
         }
     }
 
@@ -54,11 +76,4 @@ class Extension extends BaseExtension
         return false;
     }
 
-    /**
-     * @return string Extension name
-     */
-    public function getName()
-    {
-        return 'formeditor';
-    }
 }
