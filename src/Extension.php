@@ -3,6 +3,8 @@
 namespace Bolt\Extensions\Ross\FormEditor;
 
 use Bolt\Application;
+use Bolt\Asset\File\JavaScript;
+use Bolt\Asset\File\Stylesheet;
 use Bolt\Extension\SimpleExtension;
 
 class Extension extends SimpleExtension
