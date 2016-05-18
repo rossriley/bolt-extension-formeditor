@@ -68,7 +68,7 @@ class Extension extends SimpleExtension
     {
         $app = $this->getContainer();
         return [
-            '/extend/formedtitor' => $app['formeditor.controller.backend'],
+            '/extend/formeditor' => $app['formeditor.controller.backend'],
         ];
     }
 
