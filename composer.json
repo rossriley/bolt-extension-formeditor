@@ -14,9 +14,6 @@
     ],
 
     "autoload": {
-        "files": [
-            "init.php"
-        ],
         "psr-4": {
             "Bolt\\Extensions\\Ross\\FormEditor\\": "src",
             "Bolt\\Extensions\\Ross\\FormEditor\\Tests\\": "tests"
