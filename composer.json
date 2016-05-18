@@ -28,7 +28,7 @@
         "bolt-screenshots": [
             "screenshot.png",
             "screenshot2.png"
-        ]
+        ],
         "bolt-class": "Bolt\\Extensions\\Ross\\FormEditor\\Extension"
     }
 }
