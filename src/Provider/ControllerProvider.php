@@ -22,4 +22,12 @@ class ControllerProvider implements ServiceProviderInterface
             }
         );
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function boot(Application $app)
+    {
+
+    }
 }
