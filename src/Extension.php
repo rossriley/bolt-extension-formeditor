@@ -6,12 +6,24 @@ use Bolt\Application;
 use Bolt\Asset\File\JavaScript;
 use Bolt\Asset\File\Stylesheet;
 use Bolt\Extension\SimpleExtension;
+use Bolt\Extensions\Ross\FormEditor\Provider\ControllerProvider;
 use Bolt\Menu\MenuEntry;
 use Bolt\Translation\Translator as Trans;
 
 class Extension extends SimpleExtension
 {
     const CONTAINER = 'extensions.formeditor';
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getServiceProviders()
+    {
+        return [
+            $this,
+            new ControllerProvider(),
+        ];
+    }
 
     protected function registerAssets()
     {
@@ -46,6 +58,17 @@ class Extension extends SimpleExtension
                 ->setLabel(Trans::__('Edit Forms'))
                 ->setIcon('fa:pencil-square-o')
                 ->setPermission('admin||root||developer||editor'),
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function registerBackendControllers()
+    {
+        $app = $this->getContainer();
+        return [
+            '/' => $app['formeditor.controller.backend'],
         ];
     }
 
