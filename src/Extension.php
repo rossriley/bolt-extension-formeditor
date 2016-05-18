@@ -42,7 +42,7 @@ class Extension extends SimpleExtension
     protected function registerMenuEntries()
     {
         return [
-            (new MenuEntry('formeditor', 'extensions/formeditor'))
+            (new MenuEntry('formeditor', 'formeditor'))
                 ->setLabel(Trans::__('Edit Forms'))
                 ->setIcon('fa:pencil-square-o')
                 ->setPermission('admin||root||developer||editor'),
