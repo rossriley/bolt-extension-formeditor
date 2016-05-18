@@ -2,13 +2,13 @@
 
 namespace Bolt\Extensions\Ross\FormEditor\Controller;
 
+use Bolt\Controller\Zone;
 use Silex\Application;
 use Silex\ControllerProviderInterface;
 use Symfony\Component\Yaml\Dumper;
 use Symfony\Component\Yaml\Parser;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Bolt\Extensions\Ross\FormEditor\Extension;
 use Bolt\Extensions\Ross\FormEditor\Form;
 
 class FormEditorController implements ControllerProviderInterface
@@ -33,6 +33,7 @@ class FormEditorController implements ControllerProviderInterface
         $this->app = $app;
 
         $ctr = $app['controllers_factory'];
+        $ctr->value(Zone::KEY, Zone::BACKEND);
 
         $ctr->get('/', array($this, 'index'))
             ->bind('formeditor.index');
