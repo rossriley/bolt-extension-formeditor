@@ -21,7 +21,7 @@ class Extension extends SimpleExtension
     {
         return [
             $this,
-            new ControllerProvider(),
+            new ControllerProvider($this->getConfig()),
         ];
     }
 

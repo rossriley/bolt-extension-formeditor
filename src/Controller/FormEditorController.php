@@ -14,6 +14,12 @@ use Bolt\Extensions\Ross\FormEditor\Form;
 class FormEditorController implements ControllerProviderInterface
 {
     public $app;
+    public $config;
+
+    public function __construct($config = [])
+    {
+        $this->config = $config;
+    }
 
     /**
      * Sets up all the named routes for the extension.
@@ -25,7 +31,6 @@ class FormEditorController implements ControllerProviderInterface
     public function connect(Application $app)
     {
         $this->app = $app;
-        $this->config = $app[Extension::CONTAINER]->config;
 
         $ctr = $app['controllers_factory'];
 

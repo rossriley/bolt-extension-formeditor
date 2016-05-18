@@ -11,6 +11,14 @@ use Silex\ServiceProviderInterface;
  */
 class ControllerProvider implements ServiceProviderInterface
 {
+
+    public $config;
+
+    public function __construct(array $config)
+    {
+        $this->config = $config;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -18,7 +26,7 @@ class ControllerProvider implements ServiceProviderInterface
     {
         $app['formeditor.controller.backend'] = $app->share(
             function ($app) {
-                return new Controller\FormEditorController();
+                return new Controller\FormEditorController($this->config);
             }
         );
     }
