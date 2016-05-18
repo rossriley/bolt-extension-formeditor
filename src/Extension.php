@@ -6,6 +6,7 @@ use Bolt\Application;
 use Bolt\Asset\File\JavaScript;
 use Bolt\Asset\File\Stylesheet;
 use Bolt\Extension\SimpleExtension;
+use Bolt\Menu\MenuEntry;
 
 class Extension extends SimpleExtension
 {
