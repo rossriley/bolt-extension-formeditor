@@ -7,6 +7,7 @@ use Bolt\Asset\File\JavaScript;
 use Bolt\Asset\File\Stylesheet;
 use Bolt\Extension\SimpleExtension;
 use Bolt\Menu\MenuEntry;
+use Bolt\Translation\Translator as Trans;
 
 class Extension extends SimpleExtension
 {
