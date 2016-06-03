@@ -46,7 +46,7 @@
                                     <hr>
                                 </div>
                                 <div class="tab-pane" id="tab-fields">
-                                    {% form_theme form 'form_editor_fields_theme.twig' %}
+                                    {% form_theme form '@formeditor/form_editor_fields_theme.twig' %}
                                     <fieldset class="text" id="form_field_list">
                                         {{ form_widget(form.fields) }}
                                     </fieldset>
