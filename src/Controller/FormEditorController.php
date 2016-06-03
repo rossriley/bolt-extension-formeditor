@@ -8,12 +8,20 @@ use Symfony\Component\Yaml\Dumper;
 use Symfony\Component\Yaml\Parser;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Bolt\Extensions\Ross\FormEditor\Extension;
+use Bolt\Extensions\Ross\FormEditor\FormEditorExtension;
 use Bolt\Extensions\Ross\FormEditor\Form;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class FormEditorController implements ControllerProviderInterface
 {
     public $app;
+
+    protected $config;
+
+    public function __construct($config)
+    {
+        $this->config = $config;
+    }
 
     /**
      * Sets up all the named routes for the extension.
@@ -25,7 +33,6 @@ class FormEditorController implements ControllerProviderInterface
     public function connect(Application $app)
     {
         $this->app = $app;
-        $this->config = $app[Extension::CONTAINER]->config;
 
         $ctr = $app['controllers_factory'];
 
@@ -60,10 +67,10 @@ class FormEditorController implements ControllerProviderInterface
         // Enable HTML snippets in our routes so that JS & CSS gets inserted
         $app['htmlsnippets'] = true;
 
-        // Add our JS & CSS
-        $app[Extension::CONTAINER]->addJavascript('assets/jquery.sortable.min.js', array('late' => true));
-        $app[Extension::CONTAINER]->addJavascript('assets/formeditor.js', array('late' => true));
-        $app[Extension::CONTAINER]->addCss('assets/formeditor.css');
+        // Checks that the user has a non-guest role.
+        if (! $app['users']->isAllowed('dashboard')) {
+            throw new AccessDeniedException('Logged in user does not have the correct rights to use this class.');
+        }
     }
 
     /**
@@ -323,8 +330,8 @@ class FormEditorController implements ControllerProviderInterface
     {
         $data = $this->read();
 
-        if (class_exists('\Bolt\Extension\Bolt\BoltForms\Extension')) {
-            $unsetKeys = $this->app[\Bolt\Extension\Bolt\BoltForms\Extension::CONTAINER]->getConfigKeys();
+        if (class_exists('\Bolt\Extension\Bolt\BoltForms\BoltFormsExtension')) {
+            $unsetKeys = $this->config;
             foreach ($unsetKeys as $unsetKey) {
                 unset($data[$unsetKey]);
             }
