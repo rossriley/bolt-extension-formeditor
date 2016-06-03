@@ -44,7 +44,7 @@ class Extension extends SimpleExtension
     protected function registerTwigPaths()
     {
         return [
-            'twig' => ['position' => 'prepend', 'namespace' => 'bolt']
+            'twig/formeditor' => ['namespace' => 'formeditor']
         ];
     }
 
