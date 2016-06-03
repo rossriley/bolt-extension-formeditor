@@ -38,6 +38,7 @@ Bolt.formeditor = {
         $("#form_fields").append(proto); 
         $("#form_fields").sortable();
         this.handleConditionals();
+        $(".name-row").last().focus();
     },
     
     deleteField: function(trigger) {

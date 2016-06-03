@@ -8,7 +8,7 @@ defaults:
         from_name: name
         from_email: email
     feedback:
-        success: "Message submission sucessful"
+        success: "Message submission successful"
         error: "There are errors in the form, please fix before trying to resubmit"
     database:
 #       contenttype: feedback

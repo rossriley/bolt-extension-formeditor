@@ -2,7 +2,7 @@
 
 {% block form_row %}
     {% spaceless %}
-        <div class=" {% if errors|length > 0 %}has-error{% endif %}">
+        <div class="{% if errors|length > 0 %} has-error{% endif %}">
             {% if form.vars.compound %}
                 {% set class = '' %}
             {% else %}
