@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Bolt\Extensions\Ross\FormEditor\Extension;
 use Bolt\Extensions\Ross\FormEditor\Form;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class FormEditorController implements ControllerProviderInterface
 {
@@ -64,6 +65,15 @@ class FormEditorController implements ControllerProviderInterface
         $app[Extension::CONTAINER]->addJavascript('assets/jquery.sortable.min.js', array('late' => true));
         $app[Extension::CONTAINER]->addJavascript('assets/formeditor.js', array('late' => true));
         $app[Extension::CONTAINER]->addCss('assets/formeditor.css');
+
+        // Checks that the user has a non-guest role.
+        $currentUser = $app['users']->getCurrentUser();
+        $currentUserId = $currentUser['id'];
+        foreach (['admin', 'root', 'developer', 'editor'] as $role) {
+            if (! $app['users']->hasRole($currentUserId, $role)) {
+                throw new AccessDeniedException('Logged in user does not have the correct rights to use this class.');
+            }
+        }
     }
 
     /**
