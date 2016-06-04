@@ -9,7 +9,7 @@ Bolt.formeditor = {
         });
         
         $("#form_fields").sortable();
-        $('#form_fields input.choices-row').select2({tags: true, tokenSeparators: [',']});
+        $('#form_fields select.choices-row').select2({tags: true, tokenSeparators: [',']});
         
         $('#form_fields').on('click', '.delete-icon .form-row-delete', function(e){ 
             controller.deleteField($(this));      
@@ -34,7 +34,7 @@ Bolt.formeditor = {
         html = html.replace(/__name__/gi, this.fieldCollectionCount++);
         var proto = $(html);
         proto.find('input').removeAttr('readonly');
-        proto.find('input.choices-row').select2({tags: {}, tokenSeparators: [',']});
+        proto.find('select.choices-row').select2({tags: {}, tokenSeparators: [',']});
         $("#form_fields").append(proto); 
         $("#form_fields").sortable();
         this.handleConditionals();
