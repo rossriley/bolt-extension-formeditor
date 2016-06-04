@@ -4,12 +4,16 @@ namespace Bolt\Extensions\Ross\FormEditor\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 
 /**
  * A Form Collection that sets up the options for the repeating field types.
  */
 class FormelementType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -31,17 +35,26 @@ class FormelementType extends AbstractType
                     'submit' => 'Submit Button',
                 ],
             ])
-            ->add('choices', 'choice', [
-                'label' => 'Options to show',
-                'required' => false,
-                'multiple' => true,
-                'expanded' => true,
-                'attr' => ['help' => 'Setup the available choices'],
-            ])
             ->add('required', 'checkbox', [
                 'label' => 'Required Field',
                 'required' => false,
             ]);
+
+        $builder->addEventListener(
+            FormEvents::PRE_SET_DATA,
+            function (FormEvent $event) {
+                $form = $event->getForm();
+                $data = $event->getData();
+
+                $form->add('choices', 'choice', [
+                    'label' => 'Options to show',
+                    'required' => false,
+                    'multiple' => true,
+                    'attr' => ['help' => 'Setup the available choices'],
+                    'choices' => $data->getChoices(),
+                ]);
+            }
+        );
     }
 
     public function getName()
