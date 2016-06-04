@@ -31,9 +31,9 @@ class FormelementType extends AbstractType
                     'submit' => 'Submit Button',
                 ],
             ])
-            ->add('choices', 'choice', [
+            ->add('choices', 'text', [
                 'label' => 'Options to show',
-                'multiple' => true,
+                'required' => false,
                 'attr' => ['help' => 'Separate choices with a comma.'],
             ])
             ->add('required', 'checkbox', [
