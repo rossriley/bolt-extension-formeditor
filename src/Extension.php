@@ -31,7 +31,7 @@ class Extension extends SimpleExtension
             (new Stylesheet('formeditor.css'))->setZone('backend'),
             (new JavaScript('select2.full.min.js'))->setZone('backend'),
             (new JavaScript('formeditor.js'))->setZone('backend'),
-            (new JavaScript('jquery.sortable.js'))->setZone('backend'),
+            (new JavaScript('jquery.sortable.min.js'))->setZone('backend'),
         ];
     }
 
