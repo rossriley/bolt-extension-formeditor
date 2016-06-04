@@ -327,7 +327,7 @@ class FormEditorController implements ControllerProviderInterface
         $data = $this->read();
 
         if (class_exists(BoltFormsExtension::class)) {
-            $unsetKeys = $this->app[BoltFormsExtension::CONTAINER]->getConfigKeys();
+            $unsetKeys = $this->app['extensions']->get('Bolt/BoltForms')->getConfigKeys();
             foreach ($unsetKeys as $unsetKey) {
                 unset($data[$unsetKey]);
             }
