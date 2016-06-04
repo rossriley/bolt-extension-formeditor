@@ -34,7 +34,7 @@ Bolt.formeditor = {
         html = html.replace(/__name__/gi, this.fieldCollectionCount++);
         var proto = $(html);
         proto.find('input').removeAttr('readonly');
-        proto.find('input.choices-row').select2({tags: true, tokenSeparators: [',']});
+        proto.find('input.choices-row').select2({tags: {}, tokenSeparators: [',']});
         $("#form_fields").append(proto); 
         $("#form_fields").sortable();
         this.handleConditionals();
