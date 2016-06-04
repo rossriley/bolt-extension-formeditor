@@ -51,6 +51,7 @@ class FormelementType extends AbstractType
                     'multiple' => true,
                     'attr' => ['help' => 'Setup the available choices'],
                     'choices' => $data['choices'],
+                    'data' => $data['choices'],
                 ]);
             }
         );

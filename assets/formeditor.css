@@ -19,7 +19,7 @@
     margin:10px 0;
 } 
 #form_fields .form-field-row input {
-    width:100%;
+    width:100% !important;
 }
 #form_fields .form-field-row small {
     color:#999;
