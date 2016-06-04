@@ -34,6 +34,7 @@ class FormelementType extends AbstractType
             ->add('choices', 'choice', [
                 'label' => 'Options to show',
                 'multiple' => true,
+                'choices' => [],
                 'attr' => ['help' => 'Separate choices with a comma.'],
             ])
             ->add('required', 'checkbox', [
