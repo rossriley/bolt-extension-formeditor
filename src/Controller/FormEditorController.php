@@ -255,6 +255,9 @@ class FormEditorController implements ControllerProviderInterface
                     unset($fulldata[$formname]['fields'][$fieldkey]['options']['required']);
                 }
 
+                if ($values['type'] == 'choice') {
+                    $fulldata[$formname]['fields'][$fieldkey]['options']['choices'] = $values['choices'];
+                }
             }
         }
 
@@ -287,6 +290,9 @@ class FormEditorController implements ControllerProviderInterface
             $data['fields'][$field]['name'] = $field;
             $data['fields'][$field] = array_merge($data['fields'][$field], (array) $data['fields'][$field]['options']);
 
+            if (isset($data['fields'][$field]['choices'])) {
+                $data['fields'][$field]['choices'] = $data['fields'][$field]['choices'];
+            }
             unset($data['fields'][$field]['options']);
         }
 
