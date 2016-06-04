@@ -35,7 +35,8 @@ class FormelementType extends AbstractType
                 'label' => 'Options to show',
                 'required' => false,
                 'multiple' => true,
-                'attr' => ['help' => 'Separate choices with a comma.'],
+                'expanded' => true,
+                'attr' => ['help' => 'Setup the available choices'],
             ])
             ->add('required', 'checkbox', [
                 'label' => 'Required Field',
