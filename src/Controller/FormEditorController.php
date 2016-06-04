@@ -9,6 +9,7 @@ use Symfony\Component\Yaml\Dumper;
 use Symfony\Component\Yaml\Parser;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Bolt\Extension\Bolt\BoltForms\BoltFormsExtension;
 use Bolt\Extensions\Ross\FormEditor\Form;
 
 class FormEditorController implements ControllerProviderInterface
@@ -325,8 +326,8 @@ class FormEditorController implements ControllerProviderInterface
     {
         $data = $this->read();
 
-        if (class_exists('\Bolt\Extension\Bolt\BoltForms\Extension')) {
-            $unsetKeys = $this->app[\Bolt\Extension\Bolt\BoltForms\Extension::CONTAINER]->getConfigKeys();
+        if (class_exists(BoltFormsExtension::class)) {
+            $unsetKeys = $this->app[BoltFormsExtension::CONTAINER]->getConfigKeys();
             foreach ($unsetKeys as $unsetKey) {
                 unset($data[$unsetKey]);
             }
