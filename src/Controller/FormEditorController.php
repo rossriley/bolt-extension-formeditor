@@ -256,7 +256,7 @@ class FormEditorController implements ControllerProviderInterface
                 }
 
                 if ($values['type'] == 'choice') {
-                    $fulldata[$formname]['fields'][$fieldkey]['options']['choices'] = explode(',', $values['choices']);
+                    $fulldata[$formname]['fields'][$fieldkey]['options']['choices'] = $values['choices'];
                 }
             }
         }
@@ -291,7 +291,7 @@ class FormEditorController implements ControllerProviderInterface
             $data['fields'][$field] = array_merge($data['fields'][$field], (array) $data['fields'][$field]['options']);
 
             if (isset($data['fields'][$field]['choices'])) {
-                $data['fields'][$field]['choices'] = implode(',', $data['fields'][$field]['choices']);
+                $data['fields'][$field]['data'] = $data['fields'][$field]['choices'];
             }
             unset($data['fields'][$field]['options']);
         }
