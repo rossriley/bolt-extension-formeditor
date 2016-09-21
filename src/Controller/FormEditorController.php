@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Bolt\Extension\Bolt\BoltForms\BoltFormsExtension;
 use Bolt\Extensions\Ross\FormEditor\Form;
+use Bolt\Translation\Translator as Trans;
 
 class FormEditorController implements ControllerProviderInterface
 {
@@ -90,7 +91,7 @@ class FormEditorController implements ControllerProviderInterface
             if ($data) {
                 $this->createForm($data);
             } else {
-                $this->app['session']->getFlashBag()->set('error', 'Unable to create form');
+                $this->app['session']->getFlashBag()->set('error', Trans::__('Unable to create form'));
             }
         }
 
@@ -116,7 +117,7 @@ class FormEditorController implements ControllerProviderInterface
         if ($request->getMethod() == 'POST') {
             $data = $request->request->get($form->getName());
             $this->save($data, $formname);
-            $this->app['session']->getFlashBag()->set('success', 'Form successfully updated');
+            $this->app['session']->getFlashBag()->set('success', Trans::__('Form successfully updated'));
             $form = $this->buildForm($formname);
         }
 
@@ -142,7 +143,7 @@ class FormEditorController implements ControllerProviderInterface
             unset($data[$formname]);
             $response = $this->write($data);
             if ($response) {
-                $this->app['session']->getFlashBag()->set('success', 'Form successfully deleted');
+                $this->app['session']->getFlashBag()->set('success', Trans::__('Form successfully deleted'));
             }
         }
 
@@ -161,7 +162,7 @@ class FormEditorController implements ControllerProviderInterface
         $existing = $this->getForms($newname);
 
         if ($existing) {
-            $this->app['session']->getFlashBag()->set('error', 'The form name you chose already exists');
+            $this->app['session']->getFlashBag()->set('error', Trans::__('The form name you chose already exists'));
 
             return;
         }
@@ -172,7 +173,7 @@ class FormEditorController implements ControllerProviderInterface
         $fulldata[$cleanname] = $this->config['defaults'];
 
         if ($this->write($fulldata)) {
-            $this->app['session']->getFlashBag()->set('success', 'Your new form has been created');
+            $this->app['session']->getFlashBag()->set('success', Trans::__('Your new form has been created'));
         }
     }
 

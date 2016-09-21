@@ -27,8 +27,8 @@
                         <form action="" method="POST" class="form-horizontal" role="form">
 
                             <ul class="nav nav-tabs" id="filtertabs">
-                                <li class="active"><a href="#tab-main" data-toggle="tab">Settings</a></li>
-                                <li><a href="#tab-fields" data-toggle="tab">Fields</a></li>
+                                <li class="active"><a href="#tab-main" data-toggle="tab">{{ __('Settings') }}</a></li>
+                                <li><a href="#tab-fields" data-toggle="tab">{{ __('Fields') }}</a></li>
                             </ul>
 
                             <div class="tab-content">
@@ -61,7 +61,7 @@
 
                                 </div>
                             <fieldset>
-                                <input type="submit" value="Save" name="submit" class="btn btn-primary">
+                                <input type="submit" value="{{ __('Save') }}" name="submit" class="btn btn-primary">
                             </fieldset>
                         </form>
                     </div>
