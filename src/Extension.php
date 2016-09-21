@@ -55,7 +55,7 @@ class Extension extends SimpleExtension
     {
         return [
             (new MenuEntry('formeditor', 'formeditor'))
-                ->setLabel(Trans::__('Edit Forms'))
+                ->setLabel(Trans::__('Form editor'))
                 ->setIcon('fa:pencil-square-o')
                 ->setPermission('admin||root||developer||editor'),
         ];
