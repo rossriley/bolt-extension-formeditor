@@ -1,0 +1,26 @@
+{% block fieldgroup %}
+{# Set the title with the label. The name if label is empty #}
+
+{% set group_title = group.label.vars.value %}
+{% if group_title == '' %}
+    {% set group_title = group.name.vars.value %}
+{% endif %}
+
+<div class="field-group clearfix">
+    <div class="flex-row">
+            <span class="no-grow sort-handle">
+                <i class="fa fa-sort" aria-hidden="true"></i>
+            </span>
+        <span class="no-grow expandEditor" data-id="group-{{ loop.index }}">
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </span>
+        <span class="itemTitle">{{ group_title }}</span>
+        <span class="no-grow deleteField">
+            <a href="#" class="form-row-delete">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+            </a>
+        </span>
+    </div>
+    {{ form_widget(group, {'attr' : { 'class' : 'field-group-content group-'~loop.index } }) }}
+</div>
+{% endblock fieldgroup %}

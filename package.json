@@ -1,0 +1,22 @@
+{
+  "name": "formeditor",
+  "version": "1.0.0",
+  "description": "### Experimental warning - read details below",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/navelpluisje/bolt-extension-formeditor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/navelpluisje/bolt-extension-formeditor/issues"
+  },
+  "homepage": "https://github.com/navelpluisje/bolt-extension-formeditor#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

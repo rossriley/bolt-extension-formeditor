@@ -20,20 +20,20 @@
 
             {% include '_sub/_messages.twig' %}
 
-            <section class="forums-container">                
+            <section class="forums-container">
                 <div class="row">
                     <div class="col-xs-12">
                         {% form_theme form '@formeditor/form_editor_theme.twig' %}
                         <form action="" method="POST" class="form-horizontal" role="form">
-                        
+
                             <ul class="nav nav-tabs" id="filtertabs">
                                 <li class="active"><a href="#tab-main" data-toggle="tab">Settings</a></li>
                                 <li><a href="#tab-fields" data-toggle="tab">Fields</a></li>
                             </ul>
-                            
+
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tab-main">
-                        
+
                                     <h4>{{ __('Notification Settings') }}</h4>
                                     <fieldset class="text">
                                         {{ form_widget(form.notification) }}
@@ -47,8 +47,10 @@
                                 </div>
                                 <div class="tab-pane" id="tab-fields">
                                     {% form_theme form '@formeditor/form_editor_fields_theme.twig' %}
-                                    <fieldset class="text" id="form_field_list">
-                                        {{ form_widget(form.fields) }}
+                                    <fieldset class="text" id="form_field_list" data-prototype="{{ include('@formeditor/fieldgroup.twig', {'form': form.fields, 'group': form.fields.vars.prototype})|e('html') }}">
+                                        {% for group in form.fields %}
+                                            {% include '@formeditor/fieldgroup.twig' with {'form': form.fields, 'group': group} %}
+                                        {% endfor %}
                                     </fieldset>
                                     <fieldset class="text">
                                         <button id="form_field_add" type="button" class="btn btn-default btn-number">
@@ -56,7 +58,7 @@
                                         </button>
                                     </fieldset>
                                     <hr>
-                                    
+
                                 </div>
                             <fieldset>
                                 <input type="submit" value="Save" name="submit" class="btn btn-primary">
