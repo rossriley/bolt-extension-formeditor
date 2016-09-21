@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
+use Bolt\Translation\Translator as Trans;
+
 
 /**
  * A Form Collection that sets up the options for the repeating field types.
@@ -17,25 +19,25 @@ class FormelementType extends AbstractType
     {
         $builder
             ->add('name',   'text', [
-                'label' => 'Internal name for field',
+                'label' => Trans::__('Internal name for field'),
                 'read_only' => true,
-                'attr' => ['help' => 'Only letters, numbers and underscores allowed'],
+                'attr' => ['help' => Trans::__('Only letters, numbers and underscores allowed')],
             ])
             ->add('label',   'text', [
-                'label' => 'Label for this form field',
-                'attr' => ['help' => 'This is the user-visible label'],
+                'label' => Trans::__('Label for this form field'),
+                'attr' => ['help' => Trans::__('This is the user-visible label')],
             ])
             ->add('type',   'choice', [
-                'label' => 'Type of form element',
+                'label' => Trans::__('Type of form element'),
                 'choices' => [
-                    'text' => 'Text',
-                    'textarea' => 'Text Area',
-                    'choice' => 'Select Dropdown',
-                    'submit' => 'Submit Button',
+                    'text' => Trans::__('Text'),
+                    'textarea' => Trans::__('Text Area'),
+                    'choice' => Trans::__('Select Dropdown'),
+                    'submit' => Trans::__('Submit Button'),
                 ],
             ])
             ->add('required', 'checkbox', [
-                'label' => 'Required Field',
+                'label' => Trans::__('Required Field'),
                 'required' => false,
             ]);
 
@@ -46,10 +48,10 @@ class FormelementType extends AbstractType
                 $data = $event->getData();
 
                 $form->add('choices', 'choice', [
-                    'label' => 'Options to show',
+                    'label' => Trans::__('Options to show'),
                     'required' => false,
                     'multiple' => true,
-                    'attr' => ['help' => 'Setup the available choices'],
+                    'attr' => ['help' => Trans::__('Setup the available choices')],
                     'choices' => array_combine((array)$data['choices'], (array)$data['choices']),
                 ]);
             }

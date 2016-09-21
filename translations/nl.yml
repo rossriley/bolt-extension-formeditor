@@ -1,0 +1,40 @@
+# index.twig
+'Available Forms': 'Beschikbare Formulieren'
+'Name': 'Naam'
+'Actions': 'Acties'
+'Edit': 'Wijzig'
+'Create a new form': 'Maak een nieuw formulier'
+'Choose a name for the form and hit create': 'Geef een naam in voor het formulier en klik op `Genereer formulier`'
+'Create Form': 'Genereer formulier'
+
+# edit.twig
+'Settings': 'Instellingen'
+'Fields': 'Velden'
+'Notification Settings': 'Notificatie instellingen'
+'Feedback Settings': 'Feedback instellingen'
+'Add New Field': 'Voeg nieuw veld toe'
+'Save': 'Opslaan'
+'Quick Links': 'Quick Links'
+'Back to form list': 'Terug naar de formulieren'
+'Delete Form': 'Verwijder formulier'
+
+# FormelementType.php
+'Internal name for field': 'Interne naam'
+'Only letters, numbers and underscores allowed': 'Alleen letters, cijfers en underscores toegestaan'
+'Label for this form field': 'Label voor veld'
+'This is the user-visible label': 'Dit is voor de gebruiker zichtbaar'
+'Type of form element': 'Type element'
+'Text': 'Tekst'
+'Text Area': 'Tekstveld'
+'Select Dropdown': 'Keuzeveld'
+'Submit Button': 'Verzend knop'
+'Required Field': 'Verplicht veld'
+'Options to show': 'Keuze opties'
+'Setup the available choices': 'Geef de mogelijke keuzes in'
+
+# FormEditorController.php
+'Unable to create form': 'Formulier aanmaken mislukt'
+'Form successfully updated': 'Formulier mat succes bijgewerkt'
+'Form successfully deleted': 'Formulier met succes verwijderd'
+'The form name you chose already exists': 'Er bestaat al een formulier met de opgegeven naam'
+'Your new form has been created': 'Het nieuwe formulier is aangemaakt'
