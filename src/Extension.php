@@ -68,7 +68,7 @@ class Extension extends SimpleExtension
     {
         $app = $this->getContainer();
         return [
-            '/extend/formeditor' => $app['formeditor.controller.backend'],
+            $app['url_generator']->generate('extend').'formeditor' => $app['formeditor.controller.backend'],
         ];
     }
 
