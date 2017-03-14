@@ -67,8 +67,13 @@ class Extension extends SimpleExtension
     protected function registerBackendControllers()
     {
         $app = $this->getContainer();
+        if (version_compare($app['bolt_version'], '3.3', '>=')) {
+            $mount = '/extensions/';
+        } else {
+            $mount = '/extend/';
+        }
         return [
-            $app['url_generator']->generate('extend').'formeditor' => $app['formeditor.controller.backend'],
+            $mount.'formeditor' => $app['formeditor.controller.backend'],
         ];
     }
 
