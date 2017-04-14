@@ -27,5 +27,8 @@
             "screenshot2.png"
         ],
         "bolt-class": "Bolt\\Extensions\\Ross\\FormEditor\\Extension"
+        "branch-alias": {
+            "dev-v4": "4.0.x-dev"
+        }
     }
 }
