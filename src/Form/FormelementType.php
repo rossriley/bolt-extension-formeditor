@@ -46,13 +46,14 @@ class FormelementType extends AbstractType
             function (FormEvent $event) {
                 $form = $event->getForm();
                 $data = $event->getData();
+                $choices = (isset($data['choices'])) ? (array)$data['choices']: [];
 
                 $form->add('choices', 'choice', [
                     'label' => Trans::__('Options to show'),
                     'required' => false,
                     'multiple' => true,
                     'attr' => ['help' => Trans::__('Setup the available choices')],
-                    'choices' => array_combine((array)$data['choices'], (array)$data['choices']),
+                    'choices' => array_combine($choices, $choices),
                 ]);
             }
         );
