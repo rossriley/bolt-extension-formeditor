@@ -20,6 +20,9 @@ class FormEditorController implements ControllerProviderInterface
 
     public function __construct($config = [])
     {
+        if (!isset($config['defaults'])) {
+            $config['defaults'] = [];
+        }
         $this->config = $config;
     }
 
@@ -221,11 +224,13 @@ class FormEditorController implements ControllerProviderInterface
         $fulldata = $this->read();
 
         if (isset($newdata['notification'])) {
-            $fulldata[$formname]['notification'] = array_merge($fulldata[$formname]['notification'], $newdata['notification'][0]);
+            $existing = isset($fulldata[$formname]['notification']) ? $fulldata[$formname]['notification'] : [];
+            $fulldata[$formname]['notification'] = array_merge($existing, $newdata['notification'][0]);
         }
 
         if (isset($newdata['feedback'])) {
-            $fulldata[$formname]['feedback'] = array_merge($fulldata[$formname]['feedback'], $newdata['feedback'][0]);
+            $existing = isset($fulldata[$formname]['feedback']) ? $fulldata[$formname]['feedback'] : [];
+            $fulldata[$formname]['feedback'] = array_merge($existing, $newdata['feedback'][0]);
         }
 
         if (isset($newdata['fields']['_delete'])) {
@@ -248,7 +253,7 @@ class FormEditorController implements ControllerProviderInterface
 
                 $fulldata[$formname]['fields'][$fieldkey]['type'] = $values['type'];
                 $fulldata[$formname]['fields'][$fieldkey]['options']['label'] = $values['label'];
-                if ($values['required'] == true) {
+                if (isset($values['required']) && $values['required'] == true) {
                     $fulldata[$formname]['fields'][$fieldkey]['options']['required'] = true;
                 } elseif ($values['type'] != 'submit') {
                     $fulldata[$formname]['fields'][$fieldkey]['options']['required'] = false;
@@ -263,6 +268,9 @@ class FormEditorController implements ControllerProviderInterface
         }
 
         // Final pass to sort the fields by order posted
+        if (!isset($fulldata[$formname]['fields'])) {
+            $fulldata[$formname]['fields'] = [];
+        }
         uksort($fulldata[$formname]['fields'], function ($a, $b) use ($newdata) {
             $apos = array_search($a, array_keys($newdata['fields']));
             $bpos = array_search($b, array_keys($newdata['fields']));
@@ -287,6 +295,15 @@ class FormEditorController implements ControllerProviderInterface
      */
     protected function simplifyFormData($data)
     {
+        if (!isset($data['fields'])) {
+            $data['fields'] = [];
+        }
+        if (!isset($data['notification'])) {
+            $data['notification'] = [];
+        }
+        if (!isset($data['feedback'])) {
+            $data['feedback'] = [];
+        }
         foreach ($data['fields'] as $field => &$options) {
             $data['fields'][$field]['name'] = $field;
             $data['fields'][$field] = array_merge($data['fields'][$field], (array) $data['fields'][$field]['options']);
