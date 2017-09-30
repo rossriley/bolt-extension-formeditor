@@ -67,7 +67,7 @@ formeditor = {
         var dodelete = confirm("Are you sure you want to remove a field?");
 
         if (dodelete) {
-            var parent = trigger.closest('.form-field-row');
+            var parent = trigger.closest('.field-group');
             var name = parent.find('input.name-row').val();
             var replace = '<input type="hidden" name="form[fields][_delete][]" value="'+name+'">';
             parent.fadeOut('fast', function(){
