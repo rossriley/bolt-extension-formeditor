@@ -30,7 +30,6 @@ class Extension extends SimpleExtension
         return [
             (new Stylesheet('formeditor.css'))->setZone('backend'),
             (new JavaScript('formeditor.js'))->setZone('backend'),
-            (new JavaScript('jquery.sortable.min.js'))->setZone('backend'),
         ];
     }
 
