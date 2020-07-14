@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="tab-pane" id="tab-fields">
                                     {% form_theme form '@formeditor/form_editor_fields_theme.twig' %}
-                                    <fieldset class="text" id="form_field_list" data-prototype="{{ include('@formeditor/fieldgroup.twig', {'form': form.fields, 'group': form.fields.vars.prototype})|e('html') }}">
+                                    <fieldset class="text" id="form_field_list" data-prototype="{{ include('@formeditor/fieldgroup.twig', {'form': form.fields, 'group': form.fields.vars.prototype, index: '__name__'})|e('html') }}">
                                         {% for i,group in form.fields %}
                                             {% include '@formeditor/fieldgroup.twig' with {'form': form.fields, 'group': group, 'index': i} %}
                                         {% endfor %}
