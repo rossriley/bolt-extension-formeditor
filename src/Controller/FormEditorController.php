@@ -262,6 +262,10 @@ class FormEditorController implements ControllerProviderInterface
                 }
 
                 if ($values['type'] == 'choice') {
+                    /**
+                     * if request doesnt contain choices -> set empty list
+                     */
+                    if (!isset($values['choices'])) $values['choices'] = [];
                     $fulldata[$formname]['fields'][$fieldkey]['options']['choices'] = $values['choices'];
                 }
             }
