@@ -1,4 +1,4 @@
-formeditor = {
+var formeditorRef = formeditor = {
     fieldCollectionCount: 0,
 
     init: function() {
@@ -79,12 +79,13 @@ formeditor = {
 
     handleConditionals: function() {
         $("#form_field_list select.type-row").each(function(){
-            varfieldtype = $(this).find("option:selected").val();
+            $(this).on('change', formeditorRef.handleConditionals);
+            var fieldtype = $(this).find("option:selected").val();
             var parent = $(this).closest('.field-group-content');
-            if(varfieldtype == 'choice' ) {
+            if(fieldtype == 'choice' ) {
                 parent.find('.required-row-container').hide();
                 parent.find('.choices-row-container').show();
-            } else if(varfieldtype == 'text' || varfieldtype == 'textarea') {
+            } else if(fieldtype == 'text' || fieldtype == 'textarea') {
                 parent.find('.required-row-container').show();
                 parent.find('.choices-row-container').hide();
             } else {
