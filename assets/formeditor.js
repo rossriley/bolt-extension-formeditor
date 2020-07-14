@@ -16,7 +16,7 @@ var formeditorRef = formeditor = {
             tokenSeparators: [',']
         });
 
-        $('.field-group').on('click', '.form-row-delete', function(e){
+        $('#form_field_list').on('click', '.field-group .form-row-delete', function(e){
             controller.deleteField($(this));
             e.preventDefault();
         });
