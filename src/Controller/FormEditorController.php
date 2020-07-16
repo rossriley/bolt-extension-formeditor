@@ -330,7 +330,7 @@ class FormEditorController implements ControllerProviderInterface
      */
     protected function read()
     {
-        $file = $this->app['resources']->getPath('config/extensions/boltforms.bolt.yml');
+        $file = $this->app['resources']->getPath($this->config['file']);
         $yaml = file_get_contents($file);
         $parser = new Parser();
         $data = $parser->parse($yaml);

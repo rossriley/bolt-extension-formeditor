@@ -13,3 +13,5 @@ defaults:
     database:
 #       contenttype: feedback
     fields: {}
+
+file: config/extensions/boltforms.bolt.yml
