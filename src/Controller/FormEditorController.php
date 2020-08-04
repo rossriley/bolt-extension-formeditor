@@ -379,7 +379,7 @@ class FormEditorController implements ControllerProviderInterface
         $dumper = new Dumper();
         $dumper->setIndentation(4);
         $yaml = $dumper->dump($data, 9999);
-        $file = $this->app['resources']->getPath('config/extensions/boltforms.bolt.yml');
+        $file = $this->app['resources']->getPath($this->config['file']);
         try {
             $response = @file_put_contents($file, $yaml);
         } catch (\Exception $e) {
