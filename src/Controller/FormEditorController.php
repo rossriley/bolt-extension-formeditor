@@ -333,9 +333,8 @@ class FormEditorController implements ControllerProviderInterface
         $file = $this->app['resources']->getPath($this->config['file']);
         $yaml = file_get_contents($file);
         $parser = new Parser();
-        $data = $parser->parse($yaml);
 
-        return $data;
+        return $parser->parse($yaml);
     }
 
     /**
@@ -344,9 +343,9 @@ class FormEditorController implements ControllerProviderInterface
      *
      * @param string|null $form
      *
-     * @return array
+     * @return array|false
      */
-    protected function getForms($form = false)
+    protected function getForms($form = null)
     {
         $data = $this->read();
 
@@ -359,7 +358,9 @@ class FormEditorController implements ControllerProviderInterface
 
         if ($form && array_key_exists($form, $data)) {
             return $data[$form];
-        } elseif ($form) {
+        }
+
+        if ($form) {
             return false;
         }
 
