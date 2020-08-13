@@ -35,6 +35,7 @@ class FormelementType extends AbstractType
                     'choice' => Trans::__('Select Dropdown'),
                     'submit' => Trans::__('Submit Button'),
                     'hidden' => Trans::__('Hidden Field'),
+                    'checkbox' => Trans::__('Checkbox Field'),
                 ],
             ])
             ->add('required', 'checkbox', [
